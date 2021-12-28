@@ -1,35 +1,12 @@
-
-<!--<!DOCTYPE html>
-<html>
-    <head>
-        <title>وبلاگ کیانا</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">وبلاگ کیانا</a></h1>
-        </header>
-
-        <article>
-            <time>published: 14.06.2014, 12:14</time>
-            <h2><a href="">My first post</a></h2>
-            <p>This is my first post.</p>
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                 {{ post.published_date }}
+            </time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </article>
-
-        <article>
-            <time>published: 14.06.2014, 12:14</time>
-            <h2><a href="">My second post</a></h2>
-            <p>This is my second post</p>
-        </article>
-    </body>
-</html>-->
-<header>
-    <h1><a href="/">Django Girls Blog</a></h1>
-</header>
-
-{% for post in posts %}
-    <article>
-        <time>published: {{ post.published_date }}</time>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </article>
-{% endfor %}
+    {% endfor %}
+{% endblock %}
