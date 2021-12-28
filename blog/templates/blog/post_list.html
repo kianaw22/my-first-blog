@@ -5,6 +5,7 @@
             <time class="date">
                  {{ post.published_date }}
             </time>
+            <img src="{{ post.image.url }}" class="rounded featured-image-list" alt="{{post.title}}">
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
